@@ -1,0 +1,233 @@
+/* ======================================
+   BİLDİRİM SİSTEMİ CSS STİLLERİ
+   Modern bildirim sistemi için özel stiller
+   ====================================== */
+
+/* Bildirim Badge Animasyonu */
+.badge-notifications {
+    animation: pulse 2s infinite;
+    min-width: 18px;
+    height: 18px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    transform: translate(-50%, -50%) !important;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Bildirim Dropdown */
+.dropdown-notifications {
+    position: relative;
+}
+
+.dropdown-notifications .dropdown-menu {
+    border: 1px solid rgba(var(--bs-border-color-rgb), 0.15);
+    box-shadow: 0 0.25rem 1rem rgba(var(--bs-gray-900-rgb), 0.15);
+    border-radius: 0.5rem;
+}
+
+.dropdown-menu-header {
+    padding: 0;
+    margin: 0;
+    background-color: var(--bs-gray-50);
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.dropdown-menu-header .dropdown-header {
+    padding: 1rem 1.5rem;
+    margin: 0;
+    background: transparent;
+    border: none;
+}
+
+/* Bildirim Listesi */
+.dropdown-notifications-list {
+    padding: 0;
+    margin: 0;
+}
+
+.notification-item {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-bottom: 1px solid rgba(var(--bs-border-color-rgb), 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.notification-item:hover {
+    background-color: var(--bs-gray-50) !important;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item.bg-light {
+    background-color: var(--bs-light) !important;
+    border-left: 3px solid var(--bs-primary);
+}
+
+.notification-item .avatar-initial {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+/* Bildirim İçeriği */
+.notification-item h6 {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.notification-item small {
+    font-size: 0.75rem;
+    line-height: 1.3;
+}
+
+/* Scroll Container */
+.scrollable-container {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--bs-gray-400-rgb), 0.3) transparent;
+}
+
+.scrollable-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--bs-gray-400-rgb), 0.3);
+    border-radius: 3px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(var(--bs-gray-500-rgb), 0.5);
+}
+
+/* Bildirim Türlerine Göre Renk Kodları */
+.notification-success {
+    border-left-color: var(--bs-success) !important;
+}
+
+.notification-error {
+    border-left-color: var(--bs-danger) !important;
+}
+
+.notification-warning {
+    border-left-color: var(--bs-warning) !important;
+}
+
+.notification-info {
+    border-left-color: var(--bs-info) !important;
+}
+
+.notification-system {
+    border-left-color: var(--bs-primary) !important;
+}
+
+/* Responsive Ayarlamalar */
+@media (max-width: 575.98px) {
+    .dropdown-notifications .dropdown-menu {
+        width: 320px !important;
+        left: -250px !important;
+    }
+    
+    .notification-item {
+        padding: 0.75rem 1rem;
+    }
+    
+    .notification-item .avatar-initial {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+}
+
+/* Toast Bildirimleri */
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    min-width: 300px;
+    max-width: 400px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(var(--bs-gray-900-rgb), 0.15);
+    animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Dark Mode Uyumluluğu */
+[data-bs-theme="dark"] .dropdown-menu-header {
+    background-color: var(--bs-gray-800);
+}
+
+[data-bs-theme="dark"] .notification-item:hover {
+    background-color: var(--bs-gray-800) !important;
+}
+
+[data-bs-theme="dark"] .notification-item.bg-light {
+    background-color: var(--bs-gray-700) !important;
+}
+
+[data-bs-theme="dark"] .scrollable-container::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--bs-gray-300-rgb), 0.3);
+}
+
+/* Loading Animation */
+.notification-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: var(--bs-text-muted);
+}
+
+.notification-loading .spinner-border {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+/* Empty State */
+.notification-empty {
+    text-align: center;
+    padding: 2rem;
+    color: var(--bs-text-muted);
+}
+
+.notification-empty i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
